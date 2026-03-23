@@ -1,0 +1,16 @@
+name: Profile README
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  readme-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure README exists and is non-empty
+        run: |
+          test -s README.md
